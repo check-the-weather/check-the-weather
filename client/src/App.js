@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  const [data, setData] = React.useState(null);
+  const [data, setData] = React.useState(1);
 
   React.useEffect(() => {
     fetch("/api")
@@ -15,7 +15,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : 'fuck the maywedders'}</p>
+        <p>{!data ? "Loading..." : data}</p>
+        {/* <button onClick={() => setData(data + 1)}>{data}</ button> */}
       </header>
     </div>
   );
