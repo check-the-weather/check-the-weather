@@ -3,12 +3,12 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  const [data, setData] = React.useState(1);
+  const [data, setData] = React.useState();
 
   React.useEffect(() => {
     fetch("/api")
       .then((res) => res.json())
-      .then((data) => setData(data.message));
+      .then((data) => setData(data[1].user_name));
   }, []);
 
   return (
