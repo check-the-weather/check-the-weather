@@ -1,5 +1,8 @@
 # dependencies
 /node_modules
 
+# Environment vars
+.env
+
 # Vscode change this to global git ignore eventually
 /.vscode 
