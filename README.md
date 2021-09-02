@@ -10,7 +10,7 @@
 
 4. Open the `check-the-weather` repository in your selected IDE (`VSCode` preffered).
 
-5. Open the `.env` file found in the root directory. Enter your superuser password in the PG_PASSWORD field.
+5. Open the `.env.example` file found in the root directory. Copy example file's contents into a new file named `.env`. Enter your PostgreSQL superuser password in the PG_PASSWORD field.
 
 6. To start the frontend and backend concurrently open a terminal window, type `npm run dev`. Otherwise you can start the server and client individually with `npm start server` and `npm start client`.
 
