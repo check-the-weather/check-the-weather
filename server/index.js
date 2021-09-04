@@ -6,39 +6,16 @@ const pool = require("./db");
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors());
-app.use(express.json());
+app.use(cors()); // Allow Cross-Origin Resource Sharing
+app.use(express.json()); // Convert request body to JSON
 
-// Have Node serve the files for the built React app
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+app.use(express.static(path.resolve(__dirname, '../client/build'))); // Serve the files for the built React app
 
-// Handle GET requests to /api route
-app.get('/api', async (req, res) => {
-  try {
-    const testQuery = await pool.query('SELECT * FROM users')
-    res.json(testQuery.rows)
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send("Server error");
-  }
-});
+app.use('/auth', require('./routes/auth'))
 
-app.post('/register', (req, res) => {
-  try {
-    const { firstName, lastName, email, password } = req.body;
-    const newUser = await pool.query(
-      "INSERT INTO users (first_name, last_name, email, encrypted_password) VALUES ($1, $2, $3, $4) RETURNING *",
-      [firstName, lastName, email, password]
-    );
-    res.json(newUser)
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send("Server error");
-  }
-});
+app.use('/dashboard', require('./routes/dashboard'))
 
-// All other GET requests not handled before will return the React app
-app.get('*', (req, res) => {
+app.get('*', (req, res) => { // Handle all other GET requests by returning the React app
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
