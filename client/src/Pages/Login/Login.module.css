@@ -1,0 +1,113 @@
+.PageContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* Register side (left) */
+.RegisterContainer {
+  width: 50%;
+  height: 100%;
+  background-color: #363740;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.TitleContainer {
+  display: flex;
+  margin-top: 30%;
+  justify-content: center;
+}
+
+.CheckThe {
+  display: flex;
+  font-weight: 900;
+  font-size: 64px;
+  letter-spacing: 0.4px;
+  color: #F7F8FC;
+}
+
+.Weather {
+  composes: CheckThe;
+  color: #3751FF;
+}
+
+.RegisterText {
+  margin-top: 65px;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 45px;
+  letter-spacing: 0.3px;
+  color: #F7F8FC;
+}
+
+.SignUpBtn {
+  width: 260px;
+  height: 69px;
+  margin-top: 50px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #3751FF;
+  background: #3751FF;
+  color: #F7F8FC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 45px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+}
+
+/* Login side (right) */
+
+.LoginContainer {
+  composes: RegisterContainer;
+  background-color: #F7F8FC;
+}
+
+.LoginContainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.LoginText {
+  composes: RegisterText;
+  color: #363740;
+  margin-top: 25%;
+  margin-bottom: 0;
+}
+
+.InputBox {
+  width: 343px;
+  height: 39px;
+  margin-top: 35px;
+  padding: 15px;
+  border: 0;
+  outline: 0;
+  background-color: #363740;
+  border-radius: 8px;
+  color: #F7F8FC;
+  font-family: 'Mulish', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 45px;
+  letter-spacing: 0.3px;
+}
+
+.InputBox::placeholder {
+  color: #F7F8FC;
+}
+
+.InputBox:focus-visible {
+  outline: 0;
+}
+
+.SignInBtn {
+  composes: SignUpBtn;
+  width: 373px;
+}
