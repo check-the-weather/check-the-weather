@@ -1,21 +1,23 @@
-const express = require("express");
-const path = require("path");
+const express = require('express');
+
+const app = express();
+const cors = require('cors');
+const path = require('path');
 
 const PORT = process.env.PORT || 3001;
 
-const app = express();
+// Middleware
+app.use(cors()); // Allow Cross-Origin Resource Sharing
+app.use(express.json()); // Convert request body to JSON
 
-// Have Node serve the files for the built React app
-app.use(express.static(path.resolve(__dirname, "../client/build")));
+app.use(express.static(path.resolve(__dirname, '../client/build'))); // Serve the files for the built React app
 
-// Handle GET requests to /api route
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello check the weather server!" });
-});
+app.use('/auth', require('./routes/auth'));
 
-// All other GET requests not handled before will return the React app
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+app.use('/dashboard', require('./routes/dashboard'));
+
+app.get('*', (req, res) => { // Handle all other GET requests by returning the React app
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
 app.listen(PORT, () => {
