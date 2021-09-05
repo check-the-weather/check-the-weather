@@ -16,7 +16,7 @@ function Overview({name, logout}) {
   // }
 
   async function getWeatherApiData() {
-    const response = await wretch('http://api.weatherapi.com/v1/forecast.json?key=f0b89dbb299f43f4986102826210509&q=Townsville&days=1&aqi=no&alerts=no').get().json()
+    const response = await wretch('https://api.weatherapi.com/v1/forecast.json?key=f0b89dbb299f43f4986102826210509&q=Townsville&days=1&aqi=no&alerts=no').get().json()
     setweatherApiData(response)
   }
 
