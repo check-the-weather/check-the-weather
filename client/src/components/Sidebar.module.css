@@ -47,3 +47,11 @@
   color: #DDE2FF;
   background-color: #9FA2B4;
 }
+
+.Line{
+  
+  border-bottom: 2px solid; 
+  color: #727272;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
