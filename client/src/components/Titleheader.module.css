@@ -1,0 +1,19 @@
+.PageTitle {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.UserDetails {
+  display: flex;
+  justify-content: flex-end;
+  height: 50000%;
+  width: 100%;
+}
+
+.Overview {
+  display: flex;
+  flex-direction: column;
+  height: 5%;
+  width: 100%;
+}
