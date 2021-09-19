@@ -1,19 +1,19 @@
 .PageTitle {
   display: flex;
   justify-content: flex-start;
+  margin-left: 25px;
   width: 100%;
 }
 
 .UserDetails {
   display: flex;
   justify-content: flex-end;
-  height: 50000%;
+  margin-right: 25px;
   width: 100%;
 }
 
-.Overview {
+.TitleHeader {
   display: flex;
-  flex-direction: column;
-  height: 5%;
+  flex-direction: row;
   width: 100%;
 }

@@ -1,17 +1,22 @@
 import React from 'react'
-import styles from './Titleheader.module.css'
+import styles from './TitleHeader.module.css'
+import wretch from 'wretch'
 
-function Titleheader({name}){
-    return(
-    <div className={styles.Overview}> 
-        <div className={styles.PageTitle}>
-            <h1>Overview</h1>
+
+async function TitleHeader({ title, name }) {
+        const profileImage = await wretch('https://avatars.dicebear.com/api/micah/'+ name +'.svg').get().json()
+
+    return (
+        <div className={styles.TitleHeader}> 
+            <div className={styles.PageTitle}>
+                <h1>{title}</h1>
+            </div>
+            <div className={styles.UserDetails}>
+                <img src = {profileImage} > </img>
+                <p>{name}</p>
+            </div>
         </div>
-        <div className={styles.UserDetails}>
-            <p>{name}</p>
-        </div>
-    </div>
     )
 }
 
-export default Titleheader;
+export default TitleHeader;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import wretch from 'wretch'
 
 import Sidebar from '../../components/Sidebar'
+import TitleHeader from '../../components/TitleHeader'
 
 import styles from './Overview.module.css'
 
@@ -30,9 +31,10 @@ function Overview({name, logout}) {
     <div className={styles.PageContainer}>
       <Sidebar logout={logout} />
       <div className={styles.Overview}>
-        <div className={styles.TitleRow}>
+        <TitleHeader title={"Overview"} name={name} />
+        {/* <div className={styles.TitleRow}>
           <h1>{name}'s Overview</h1>
-        </div>
+        </div> */}
         <div className={styles.Cards}>
           <div className={styles.Card}>
             <p className={styles.CardTitle}>Temperature</p>
