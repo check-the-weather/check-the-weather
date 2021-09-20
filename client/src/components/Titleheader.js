@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './TitleHeader.module.css'
 import wretch from 'wretch'
 
 
-async function TitleHeader({ title, name }) {
-        const profileImage = await wretch('https://avatars.dicebear.com/api/micah/'+ name +'.svg').get().json()
+function TitleHeader({ title, name }) {
+    const [profileImage, setProfileImage] = useState({})
+
+
+    async function getProfileImage() {
+        const response = await wretch("https://avatars.dicebear.com/api/micah/${name}.svg").get().json()
+        setProfileImage(response)
+    }
+
+    
+    useEffect(() => {
+        getProfileImage()
+    }, [])
 
     return (
         <div className={styles.TitleHeader}> 
@@ -12,7 +23,7 @@ async function TitleHeader({ title, name }) {
                 <h1>{title}</h1>
             </div>
             <div className={styles.UserDetails}>
-                <img src = {profileImage} > </img>
+                <img src={profileImage} alt="User profile"></img>
                 <p>{name}</p>
             </div>
         </div>
