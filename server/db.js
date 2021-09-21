@@ -11,11 +11,10 @@ if (process.env.NODE_ENV === 'production') {
   pool = new Pool({
     connectionString: prodConfig,
     ssl: {
-      rejectUnauthorized: false
+      rejectUnauthorized: false,
     },
   });
-}
-else {
+} else {
   pool = new Pool({
     connectionString: devConfig,
   });

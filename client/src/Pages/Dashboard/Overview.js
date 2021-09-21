@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import wretch from 'wretch'
 
-import Sidebar from '../../components/Sidebar'
+import Sidebar from 'components/Sidebar'
 
 import styles from './Overview.module.css'
 
-function Overview({name, logout}) {
+function Overview({ name, logout }) {
   // const [owmData, setOwmData] = useState({})
   const [weatherApiData, setweatherApiData] = useState({})
 
