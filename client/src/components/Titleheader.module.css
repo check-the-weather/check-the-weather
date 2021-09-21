@@ -1,3 +1,9 @@
+.TitleHeader {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
 .PageTitle {
   display: flex;
   justify-content: flex-start;
@@ -12,8 +18,10 @@
   width: 100%;
 }
 
-.TitleHeader {
+.UserImage {
   display: flex;
-  flex-direction: row;
-  width: 100%;
+  justify-content: flex-end;
+  margin-left: 1100px;
+  height: 55px;
+  width: 80px;
 }
