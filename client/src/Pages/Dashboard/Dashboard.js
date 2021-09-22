@@ -11,8 +11,7 @@ function Dashboard({ setIsAuthed }) {
   async function getName() {
 
     try {
-      const response = await wretch('/dashboard').headers({ token: localStorage.token}).get().json()
-      console.log(response)
+      const response = await wretch('/dashboard').headers({ token: localStorage.token}).get().json() 
       setName(`${response.firstName} ${response.lastName}`)
     } catch (error) {
       console.error(error.message)

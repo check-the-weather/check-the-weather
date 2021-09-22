@@ -1,6 +1,7 @@
 .TitleHeader {
   display: flex;
   flex-direction: row;
+  height: 15%;
   width: 100%;
 }
 
@@ -8,20 +9,30 @@
   display: flex;
   justify-content: flex-start;
   margin-left: 25px;
+  line-height: 30px;
   width: 100%;
 }
 
 .UserDetails {
   display: flex;
   justify-content: flex-end;
+  font-weight: bold;
   margin-right: 25px;
+  line-height: 50px;
   width: 100%;
 }
 
 .UserImage {
   display: flex;
   justify-content: flex-end;
-  margin-left: 1100px;
-  height: 55px;
+  margin-right: 25px;
+  height: 48px;
   width: 80px;
+}
+
+.Divider {
+  border-left: 2px solid #b8b8b8;
+  margin-left: 1000px;
+  margin-top: 15px;
+  height: 35px;
 }
