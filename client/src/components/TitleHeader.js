@@ -1,7 +1,5 @@
 import styles from './TitleHeader.module.css'
 
-
-
 function TitleHeader({ title, name }) {
 
     return (
