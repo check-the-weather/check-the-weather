@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import wretch from 'wretch'
 
-<<<<<<< HEAD
 import Sidebar from '../../components/Sidebar'
 import TitleHeader from '../../components/TitleHeader'
-=======
-import Sidebar from 'components/Sidebar'
->>>>>>> b3e39634ed8ce439101129f46a49e11288b02a6d
 
 import styles from './Overview.module.css'
 
-function Overview({ name, logout }) {
+function Overview({name, logout}) {
   // const [owmData, setOwmData] = useState({})
   const [weatherApiData, setweatherApiData] = useState({})
 
@@ -36,9 +32,6 @@ function Overview({ name, logout }) {
       <Sidebar logout={logout} />
       <div className={styles.Overview}>
         <TitleHeader title={"Overview"} name={name} />
-        {/* <div className={styles.TitleRow}>
-          <h1>{name}'s Overview</h1>
-        </div> */}
         <div className={styles.Cards}>
           <div className={styles.Card}>
             <p className={styles.CardTitle}>Temperature</p>
