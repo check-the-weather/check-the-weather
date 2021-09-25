@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './Sidebar.module.css'
+import styles from './Sidebar.module.scss'
 
 function Sidebar({logout}) {
 
@@ -16,8 +16,7 @@ function Sidebar({logout}) {
       <div className={styles.Item}>
         Favourites
       </div>
-      <div className={styles.Divider}>
-      </div>
+
       <div className={styles.Item} onClick={e => logout(e)}>
         Sign out
       </div>

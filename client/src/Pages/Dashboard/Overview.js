@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import wretch from 'wretch'
 
 import Sidebar from 'components/Sidebar'
+import TabsMenu from 'components/TabsMenu'
+import getTabs from 'helpers/getTabs'
 
-import styles from './Overview.module.css'
+
+import styles from './Overview.module.scss'
 
 function Overview({ name, logout }) {
   // const [owmData, setOwmData] = useState({})
@@ -26,9 +29,12 @@ function Overview({ name, logout }) {
     getWeatherApiData()
   }, [])
 
+  const tabs = getTabs('Overview', logout)
+
   return (
     <div className={styles.PageContainer}>
-      <Sidebar logout={logout} />
+      {/* <Sidebar logout={logout} /> */}
+      <TabsMenu tabs={tabs}/>
       <div className={styles.Overview}>
         <div className={styles.TitleRow}>
           <h1>{name}'s Overview</h1>

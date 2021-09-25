@@ -3,7 +3,7 @@ import wretch from 'wretch'
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify'
 
-import styles from './Login.module.css'
+import styles from './Login.module.scss'
 
 function Login({ setIsAuthed }) {
 

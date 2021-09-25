@@ -3,7 +3,7 @@ import wretch from 'wretch'
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import styles from './Register.module.css'
+import styles from './Register.module.scss'
 
 function Register({ setIsAuthed }) {
 

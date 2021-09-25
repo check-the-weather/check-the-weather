@@ -1,0 +1,42 @@
+.Tab {
+  composes: Button from "components/Button.module.scss";
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  transition: background-color 1s ease-in-out;
+  // opacity: 0.08;
+
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+
+  &:hover {
+    color: #DDE2FF;
+    background-color: #9FA2B4;
+  }
+
+  img {
+    transition: filter 200ms ease-in-out;
+    height: 32px;
+  }
+}
+
+.Tab--Selected {
+  color: #DDE2FF;
+  background-color: #9FA2B4;
+
+  img {
+    filter: grayscale(100%) brightness(200%); // White
+  }
+}
+
+
+.Divider {
+  width: 100%;
+  height: 2px;
+  margin: 15px 0px;
+  background-color: #727272;
+}
