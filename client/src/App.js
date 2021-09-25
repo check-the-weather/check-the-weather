@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import wretch from 'wretch'
+import { authedRequester } from "helpers/requesters";
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,11 +21,10 @@ function App() {
 
   async function checkUserAuth() {
     try {
-      const response = await wretch('/auth/verify').headers({ token: localStorage.token}).get().json()
+      const response = await authedRequester('/auth/verify').get().json()
       
       response === true ? setIsAuthed(true) : setIsAuthed(false)
     } catch (error) {
-      console.error(error.message)
     }
   }
 

@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom';
 
 import styles from './Tab.module.scss';
 
-const REGULAR_THEME = 'regular';
-const STRATUS_THEME = 'stratus';
-
 function Tab(props) {
   const commonProps = {
     role: 'tab',
@@ -20,7 +17,6 @@ function Tab(props) {
     id: props.id,
     tabIndex: !props.isSelected ? '-1' : undefined,
   };
-  const imgElement = <img src={props.svg} aria-hidden="true" />;
 
   if (props.isDivider) {
     return <div className={styles.Divider} />
@@ -29,22 +25,22 @@ function Tab(props) {
   if (props.to) {
     return (
       <Link to={props.to} {...commonProps} >
-        {imgElement} {props.text}
+        {props.svg} {props.id}
       </Link>
     );
   }
 
   return (
     <button onClick={props.onClick} {...commonProps}>
-      {imgElement}
+      {props.svg} {props.id}
     </button>
   );
 }
 
 Tab.propTypes = {
   id: PropTypes.string.isRequired,
-  svg: PropTypes.string.isRequired,
   isSelected: PropTypes.bool.isRequired,
+  svg: PropTypes.object,
   to: PropTypes.string,
   onClick: PropTypes.func,
   'aria-label': PropTypes.string,

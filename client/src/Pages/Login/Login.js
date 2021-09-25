@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import wretch from 'wretch'
+import { unauthedRequester } from 'helpers/requesters';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify'
+
+import Group from 'components/Group';
+import VGroup from 'components/VGroup';
 
 import styles from './Login.module.scss'
 
@@ -24,7 +27,7 @@ function Login({ setIsAuthed }) {
     try {
       const body = { email, password}
 
-      const response = await wretch('/auth/login').post(body).json()
+      const response = await unauthedRequester('/auth/login').post(body).json()
 
       if (response.token) {
         localStorage.setItem('token', response.token)
@@ -44,24 +47,24 @@ function Login({ setIsAuthed }) {
   }
 
   return (
-    <div className={styles.PageContainer}>
-      <div className={styles.RegisterContainer}>
-        <div className={styles.TitleContainer}>
-          <div className={styles.CheckThe}>checkthe</div>
-          <div className={styles.Weather}>weather</div>
-        </div>
+    <Group className={styles.PageContainer} fullHeight>
+      <VGroup className={styles.RegisterContainer}>
+        <Group className={styles.TitleContainer}>
+          <Group className={styles.CheckThe}>checkthe</Group>
+          <Group className={styles.Weather}>weather</Group>
+        </Group>
         <h1 className={styles.RegisterText}>Don't have an account?</h1>
         <Link to="/register" className={styles.SignUpBtn}>Sign up</Link>
-      </div>
-      <div className={styles.LoginContainer}>
+      </VGroup>
+      <VGroup className={styles.LoginContainer}>
         <h1 onSubmit={onSubmit} className={styles.LoginText}>Log in to your account</h1>
         <form onSubmit={onSubmit}>
           <input type="email" name="email" value={email} placeholder="Email" onChange={event => onChange(event)} className={styles.InputBox} />
           <input type="password" name="password" value={password} placeholder="Password" onChange={event => onChange(event)} className={styles.InputBox} />
           <button className={styles.SignInBtn}>Sign In</button>
         </form>
-      </div>
-    </div>
+      </VGroup>
+    </Group>
   )
 }
 

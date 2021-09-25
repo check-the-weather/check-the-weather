@@ -4,8 +4,12 @@
 }
 
 .TitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 37px;
   margin-bottom: 60px;
+  text-decoration: none;
 }
 
 .CheckThe {

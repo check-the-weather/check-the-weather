@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import wretch from 'wretch'
+import { unauthedRequester } from 'helpers/requesters';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+
+import Group from 'components/Group';
+import VGroup from 'components/VGroup';
 
 import styles from './Register.module.scss'
 
@@ -26,7 +29,7 @@ function Register({ setIsAuthed }) {
     try {
       const body = { firstName, lastName, email, password}
 
-      const response = await wretch('/auth/register').post(body).json()
+      const response = await unauthedRequester('/auth/register').post(body).json()
 
       if (response.token) {
         localStorage.setItem('token', response.token)
@@ -39,32 +42,30 @@ function Register({ setIsAuthed }) {
         setIsAuthed(false)
         toast.error(response)
       }
-
-
-
     } catch (error) {
       console.error(error.message)
     }
   }
+
   return (
-    <div className={styles.PageContainer}>
-      <div className={styles.TitleContainer}>
-        <div className={styles.CheckThe}>checkthe</div>
-        <div className={styles.Weather}>weather</div>
-      </div>
+    <VGroup className={styles.PageContainer}>
+      <Group className={styles.TitleContainer}>
+        <Group className={styles.CheckThe}>checkthe</Group>
+        <Group className={styles.Weather}>weather</Group>
+      </Group>
       <form onSubmit={onSubmit}>
-        <div className={styles.NameContainer}>
+        <Group className={styles.NameContainer}>
           <input type="text" name="firstName" value={firstName} placeholder="First name" onChange={event => onChange(event)} className={styles.NameBox} />
           <input type="text" name="lastName" value={lastName} placeholder="Last name" onChange={event => onChange(event)} className={styles.NameBox} />
-        </div>
+        </Group>
         <input type="email" name="email" value={email} placeholder="Email" onChange={event => onChange(event)} className={styles.InputBox} />
         <input type="password" name="password" value={password} placeholder="Password" onChange={event => onChange(event)} className={styles.InputBox} />
         <button className={styles.SignUpBtn}>Create account</button>
       </form>
-      <div className={styles.BackButtonContainer}>
+      <Group className={styles.BackButtonContainer}>
         <Link to="/login" className={styles.BackButton}>Already have an account?</Link>
-      </div>
-    </div>
+      </Group>
+    </VGroup>
   )
 }
 
