@@ -16,6 +16,8 @@ function Sidebar({logout}) {
       <div className={styles.Item}>
         Favourites
       </div>
+      <div className={styles.Divider}>
+      </div>
       <div className={styles.Item} onClick={e => logout(e)}>
         Sign out
       </div>

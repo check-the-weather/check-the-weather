@@ -14,6 +14,8 @@
 
 5. Open the `.env.example` file found in the root directory. Copy example file's contents into a new file named `.env` (in the root). Enter your PostgreSQL superuser password in the PG_PASSWORD field.
 
+6. Run `npm i`
+
 6. To start the frontend and backend concurrently open a terminal window, type `npm run dev`. Otherwise you can start the server and client individually with `npm start server` and `npm start client`.
 
 7. For frontend development, go to `localhost:3000`. For backend development (API and database), go to `localhost:3001`.

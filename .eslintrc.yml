@@ -12,4 +12,8 @@ parserOptions:
   sourceType: module
 plugins:
   - react
-rules: {}
+rules: {
+  "no-useless-escape": "off",
+  "consistent-return": "off",
+  "no-console": "off"
+}
