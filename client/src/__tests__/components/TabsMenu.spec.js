@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
-import Sidebar from 'components/Sidebar.js'
+import TabsMenu from 'components/TabsMenu'
 
 test('it should render', () => {
-  render(<Sidebar />)
+  render(<TabsMenu />)
 })
