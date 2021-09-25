@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import wretch from 'wretch'
-
-<<<<<<< HEAD
 import Sidebar from '../../components/Sidebar'
 import TitleHeader from '../../components/TitleHeader'
-=======
-import Sidebar from 'components/Sidebar'
->>>>>>> 62fafdfc613f042246eb38c0d81474c7929fd720
-
 import styles from './Overview.module.css'
 
 function Overview({ name, logout }) {
