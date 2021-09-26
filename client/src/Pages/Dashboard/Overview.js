@@ -2,6 +2,11 @@ import React, { useEffect, useState } from 'react'
 import wretch from 'wretch'
 import Sidebar from '../../components/Sidebar'
 import TitleHeader from '../../components/TitleHeader'
+
+import TabsMenu from 'components/TabsMenu'
+import getTabs from 'helpers/getTabs'
+import { unauthedRequester } from 'helpers/requesters'
+
 import styles from './Overview.module.css'
 
 function Overview({ name, logout }) {
