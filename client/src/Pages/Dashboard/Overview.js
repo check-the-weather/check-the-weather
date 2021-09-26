@@ -2,12 +2,20 @@ import React, { useEffect, useState } from 'react'
 import wretch from 'wretch'
 import Sidebar from '../../components/Sidebar'
 import TitleHeader from '../../components/TitleHeader'
+<<<<<<< HEAD
 
 import TabsMenu from 'components/TabsMenu'
 import getTabs from 'helpers/getTabs'
 import { unauthedRequester } from 'helpers/requesters'
 
 import styles from './Overview.module.css'
+=======
+import styles from './Overview.module.css'
+import TabsMenu from 'components/TabsMenu'
+import getTabs from 'helpers/getTabs'
+import { unauthedRequester } from 'helpers/requesters'
+import styles from './Overview.module.scss'
+>>>>>>> e15decda4c44768a000c7a7b52340f7b110b069e
 
 function Overview({ name, logout }) {
   // const [owmData, setOwmData] = useState({})
