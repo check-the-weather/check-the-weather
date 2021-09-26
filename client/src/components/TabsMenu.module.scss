@@ -1,0 +1,26 @@
+.TabsMenu {
+  width: 280px;
+  background-color: #363740;
+}
+
+.TitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 37px;
+  margin-bottom: 60px;
+  text-decoration: none;
+}
+
+.CheckThe {
+  font-weight: 900;
+  font-size: 26px;
+  letter-spacing: 0.4px;
+  line-height: 33px;
+  color: #F7F8FC;
+}
+
+.Weather {
+  composes: CheckThe;
+  color: #3751FF;
+}

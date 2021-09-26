@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import wretch from 'wretch'
+import { authedRequester } from "helpers/requesters";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,22 +9,22 @@ import {
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+import Routes from "helpers/Routes";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 
-import "./App.css";
+import "./App.scss";
 
 function App() {
   const [isAuthed, setIsAuthed] = useState(false);
 
   async function checkUserAuth() {
     try {
-      const response = await wretch('/auth/verify').headers({ token: localStorage.token}).get().json()
+      const response = await authedRequester('/auth/verify').get().json()
       
       response === true ? setIsAuthed(true) : setIsAuthed(false)
     } catch (error) {
-      console.error(error.message)
     }
   }
 
@@ -46,14 +46,14 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path='/login' >
-            {isAuthed ? <Redirect to='/' /> : <Login setIsAuthed={setIsAuthed} />}
+          <Route exact path={Routes.login().router} >
+            {isAuthed ? <Redirect to={Routes.dashboard().link()} /> : <Login setIsAuthed={setIsAuthed} />}
           </Route>
-          <Route exact path='/register'>
-            {isAuthed ? <Redirect to='/' /> : <Register setIsAuthed={setIsAuthed} />}
+          <Route exact path={Routes.register().router}>
+            {isAuthed ? <Redirect to={Routes.dashboard().link()} /> : <Register setIsAuthed={setIsAuthed} />}
           </Route>
-          <Route exact path='/'>
-            {isAuthed ? <Dashboard setIsAuthed={setIsAuthed} /> : <Redirect to='/login' />}
+          <Route exact path={Routes.dashboard().router}>
+            {isAuthed ? <Dashboard setIsAuthed={setIsAuthed} /> : <Redirect to={Routes.login().link()} />}
           </Route>
         </Switch>
       </Router>
