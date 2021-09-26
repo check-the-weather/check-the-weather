@@ -1,5 +1,4 @@
 .PageContainer {
-  display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -13,14 +12,11 @@
 }
 
 .TitleContainer {
-  display: flex;
   margin-top: 100px;
-  justify-content: center;
   margin-bottom: 45px;
 }
 
 .CheckThe {
-  display: flex;
   font-weight: 900;
   font-size: 64px;
   letter-spacing: 0.4px;
@@ -58,7 +54,6 @@
 }
 
 .NameContainer {
-  display: flex;
   width: 485px;
 }
 
@@ -90,7 +85,6 @@
 
 .BackButtonContainer {
   width: 515px;
-  display: flex;
 }
 
 .BackButton {
