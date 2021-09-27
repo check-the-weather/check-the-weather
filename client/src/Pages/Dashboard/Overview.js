@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react'
 import TabsMenu from 'components/TabsMenu'
 import getTabs from 'helpers/getTabs'
 import { unauthedRequester } from 'helpers/requesters'
-import TitleHeader from '../../components/TitleHeader'
+import TitleHeader from 'components/TitleHeader'
 
 import styles from './Overview.module.scss'
 
 function Overview({ name, logout }) {
-const [owmData, setOwmData] = useState({})
+  const [owmData, setOwmData] = useState({})
   const [weatherApiData, setweatherApiData] = useState({})
 
 
@@ -34,7 +34,7 @@ const [owmData, setOwmData] = useState({})
     <div className={styles.PageContainer}>
       <TabsMenu tabs={tabs}/>
       <div className={styles.Overview}>
-        <TitleHeader title={"Overview"} name={name} />
+        <TitleHeader title="Overview" name={name} />
         <div className={styles.Cards}>
           <div className={styles.Card}>
             <p className={styles.CardTitle}>Temperature</p>

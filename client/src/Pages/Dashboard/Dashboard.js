@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import wretch from 'wretch'
 import { toast } from 'react-toastify'
+import { authedRequester } from 'helpers/requesters'
 
 import Overview from './Overview'
 
@@ -11,7 +11,7 @@ function Dashboard({ setIsAuthed }) {
   async function getName() {
 
     try {
-      const response = await wretch('/dashboard').headers({ token: localStorage.token}).get().json() 
+      const response = await authedRequester('/dashboard').get().json() 
       setName(`${response.firstName} ${response.lastName}`)
     } catch (error) {
       console.error(error.message)
