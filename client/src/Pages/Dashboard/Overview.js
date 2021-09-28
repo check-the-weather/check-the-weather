@@ -5,6 +5,10 @@ import Sidebar from 'components/Sidebar'
 
 import styles from './Overview.module.css'
 
+const box = () => (
+  <div className={styles.BottomCards}> </div>
+);
+
 function Overview({ name, logout }) {
   // const [owmData, setOwmData] = useState({})
   const [weatherApiData, setweatherApiData] = useState({})
@@ -20,12 +24,43 @@ function Overview({ name, logout }) {
     setweatherApiData(response)
   }
 
-
+  function BuildTable(){
+    return(
+      <div className={styles.BottomCard}>
+            <p className={styles.BottomCardTitle}>Out On The Water</p>
+            <p className={styles.BottomCardSubTitle}>Boating and Fishing</p>
+            <div className={styles.BottomCardRow}>
+            <div className={styles.BottomCardTextLeft}>
+              <p>Next High Tide</p> </div>
+            <div className={styles.BottomCardTextRight}>
+              <p>4</p></div>
+            </div>
+            <div className={styles.Divider}></div>
+            <div className={styles.BottomCardRow}>
+            <div className={styles.BottomCardTextLeft}> <p>Next Low Tide</p> </div>
+            <div className={styles.BottomCardTextRight}>
+              <p>3</p></div>
+            </div>
+            <div className={styles.Divider}></div>
+            <div className={styles.BottomCardRow}>
+            <div className={styles.BottomCardTextLeft}> <p>Wind Speed</p> </div>
+            <div className={styles.BottomCardTextRight}>
+              <p>2</p></div>
+            </div>
+            <div className={styles.Divider}></div>
+            <div className={styles.BottomCardRow}>
+            <div className={styles.BottomCardTextLeft}> <p>Wind Direction</p> </div>
+            <div className={styles.BottomCardTextRight}>
+              <p>1</p></div>
+            </div>
+          </div>
+    )
+  }
   useEffect(() => {
     // getOwmWeatherData() // Commented out as we got temporarily blocked for exceeding daily API requests limit
     getWeatherApiData()
   }, [])
-
+  console.log(weatherApiData)
   return (
     <div className={styles.PageContainer}>
       <Sidebar logout={logout} />
@@ -51,6 +86,9 @@ function Overview({ name, logout }) {
             <p className={styles.CardText}>{`${weatherApiData?.forecast?.forecastday[0]?.day?.daily_chance_of_rain}%`}</p>
           </div>
         </div>
+        <div className={styles.BottomCards}>
+          <BuildTable/>
+      </div>
       </div>
     </div>
   )
