@@ -1,0 +1,21 @@
+.Group {
+  display: flex;
+  flex-direction: row;
+}
+
+.Group--FlexNone {
+  flex: none;
+}
+
+.Group--Flex1 {
+  flex: 1;
+}
+
+.Group--FullHeight {
+  height: 100%;
+}
+
+.Group--CenteredContent {
+  align-items: center;
+  justify-content: center;
+}

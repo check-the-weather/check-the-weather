@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import wretch from 'wretch'
 
-import Sidebar from 'components/Sidebar'
+import TabsMenu from 'components/TabsMenu'
+import getTabs from 'helpers/getTabs'
+import { unauthedRequester } from 'helpers/requesters'
+import TitleHeader from 'components/TitleHeader'
 
-import styles from './Overview.module.css'
+import styles from './Overview.module.scss'
 
 const box = () => (
   <div className={styles.BottomCards}> </div>
 );
 
 function Overview({ name, logout }) {
-  // const [owmData, setOwmData] = useState({})
+  const [owmData, setOwmData] = useState({})
   const [weatherApiData, setweatherApiData] = useState({})
 
 
-  // async function getOwmWeatherData() {
-  //   const response = await wretch('https://api.openweathermap.org/data/2.5/weather?q=townsville&appid=6f49c873dc46ce7c2d7f8040239c3e7f').get().json()
-  //   setOwmData(response)
-  // }
+  async function getOwmWeatherData() {
+    const response = await unauthedRequester('https://api.openweathermap.org/data/2.5/weather?q=townsville&appid=6f49c873dc46ce7c2d7f8040239c3e7f').get().json()
+    setOwmData(response)
+  }
 
   async function getWeatherApiData() {
-    const response = await wretch('https://api.weatherapi.com/v1/forecast.json?key=f0b89dbb299f43f4986102826210509&q=Townsville&days=1&aqi=no&alerts=no').get().json()
+    const response = await unauthedRequester('https://api.weatherapi.com/v1/forecast.json?key=f0b89dbb299f43f4986102826210509&q=Townsville&days=1&aqi=no&alerts=no').get().json()
     setweatherApiData(response)
   }
 
@@ -57,17 +59,17 @@ function Overview({ name, logout }) {
     )
   }
   useEffect(() => {
-    // getOwmWeatherData() // Commented out as we got temporarily blocked for exceeding daily API requests limit
+    getOwmWeatherData()
     getWeatherApiData()
   }, [])
-  console.log(weatherApiData)
+
+  const tabs = getTabs('Overview', logout)
+
   return (
     <div className={styles.PageContainer}>
-      <Sidebar logout={logout} />
+      <TabsMenu tabs={tabs}/>
       <div className={styles.Overview}>
-        <div className={styles.TitleRow}>
-          <h1>{name}'s Overview</h1>
-        </div>
+        <TitleHeader title="Overview" name={name} />
         <div className={styles.Cards}>
           <div className={styles.Card}>
             <p className={styles.CardTitle}>Temperature</p>
@@ -79,7 +81,7 @@ function Overview({ name, logout }) {
           </div>
           <div className={styles.Card}>
             <p className={styles.CardTitle}>Humidity</p>
-            <p className={styles.CardText}>{`${weatherApiData?.current?.humidity}%`}</p>
+            <p className={styles.CardText}>{`${owmData?.main?.humidity}%`}</p>
           </div>
           <div className={styles.Card}>
             <p className={styles.CardTitle}>Chance of ranfall</p>
