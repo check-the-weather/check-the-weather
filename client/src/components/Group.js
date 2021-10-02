@@ -18,6 +18,7 @@ function Group(props) {
         [styles['Group--FlexNone']]: props.flexNone,
         [styles['Group--Flex1']]: props.flex1,
         [styles['Group--FullHeight']]: props.fullHeight,
+        [styles['Group--FullWidth']]: props.fullWidth,
         [styles['Group--CenteredContent']]: props.centeredContent,
       })}
       style={style}

@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
+import Group from 'components/Group'
+import VGroup from 'components/VGroup'
 import TabsMenu from 'components/TabsMenu'
 import getTabs from 'helpers/getTabs'
 import { unauthedRequester } from 'helpers/requesters'
 import TitleHeader from 'components/TitleHeader'
-
-import styles from './Overview.module.scss'
+import TopCards from 'components/TopCards'
 
 function Overview({ name, logout }) {
   const [owmData, setOwmData] = useState({})
   const [weatherApiData, setweatherApiData] = useState({})
-
 
   async function getOwmWeatherData() {
     const response = await unauthedRequester('https://api.openweathermap.org/data/2.5/weather?q=townsville&appid=6f49c873dc46ce7c2d7f8040239c3e7f').get().json()
@@ -22,7 +23,6 @@ function Overview({ name, logout }) {
     setweatherApiData(response)
   }
 
-
   useEffect(() => {
     getOwmWeatherData()
     getWeatherApiData()
@@ -30,32 +30,22 @@ function Overview({ name, logout }) {
 
   const tabs = getTabs('Overview', logout)
 
+  const topCardsData = { owmData, weatherApiData }
+
   return (
-    <div className={styles.PageContainer}>
+    <Group fullHeight fullWidth>
       <TabsMenu tabs={tabs}/>
-      <div className={styles.Overview}>
+      <VGroup fullHeight fullWidth>
         <TitleHeader title="Overview" name={name} />
-        <div className={styles.Cards}>
-          <div className={styles.Card}>
-            <p className={styles.CardTitle}>Temperature</p>
-            <p className={styles.CardText}>{`${weatherApiData?.current?.temp_c}°`}</p>
-          </div>
-          <div className={styles.Card}>
-            <p className={styles.CardTitle}>Feels like</p>
-            <p className={styles.CardText}>{`${weatherApiData?.current?.feelslike_c}°`}</p>
-          </div>
-          <div className={styles.Card}>
-            <p className={styles.CardTitle}>Humidity</p>
-            <p className={styles.CardText}>{`${owmData?.main?.humidity}%`}</p>
-          </div>
-          <div className={styles.Card}>
-            <p className={styles.CardTitle}>Chance of ranfall</p>
-            <p className={styles.CardText}>{`${weatherApiData?.forecast?.forecastday[0]?.day?.daily_chance_of_rain}%`}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+        <TopCards data={topCardsData} />
+      </VGroup>
+    </Group>
   )
+}
+
+Overview.propTypes = {
+  name: PropTypes.string,
+  logout: PropTypes.func,
 }
 
 export default Overview;

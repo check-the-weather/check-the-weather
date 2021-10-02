@@ -18,19 +18,21 @@ import "./App.scss";
 
 function App() {
   const [isAuthed, setIsAuthed] = useState(false);
+  const [isLoading, setIsLoading] = useState(true)
 
   async function checkUserAuth() {
     try {
-      const response = await authedRequester('/auth/verify').get().json()
-      
+      const response = await authedRequester('/auth/verify').get().json()      
       response === true ? setIsAuthed(true) : setIsAuthed(false)
     } catch (error) {
+      return // Do nothing
     }
   }
 
   useEffect(() => {
     checkUserAuth()
-  })
+    setIsLoading(false)
+  }, [])
 
   toast.configure({
     position: 'top-right',
@@ -42,18 +44,29 @@ function App() {
     progress: undefined,
   })
 
-  return(
+  if (isLoading) {
+    return <div /> // Still checking if user is authed
+  }
+
+  return (
     <div className="App">
       <Router>
         <Switch>
           <Route exact path={Routes.login().router} >
-            {isAuthed ? <Redirect to={Routes.dashboard().link()} /> : <Login setIsAuthed={setIsAuthed} />}
+            {isAuthed ? <Redirect to={Routes.overview().link()} /> : <Login setIsAuthed={setIsAuthed} />}
           </Route>
           <Route exact path={Routes.register().router}>
-            {isAuthed ? <Redirect to={Routes.dashboard().link()} /> : <Register setIsAuthed={setIsAuthed} />}
+            {isAuthed ? <Redirect to={Routes.overview().link()} /> : <Register setIsAuthed={setIsAuthed} />}
           </Route>
-          <Route exact path={Routes.dashboard().router}>
-            {isAuthed ? <Dashboard setIsAuthed={setIsAuthed} /> : <Redirect to={Routes.login().link()} />}
+
+          <Route exact path={Routes.overview().router}>
+            {isAuthed ? <Dashboard setIsAuthed={setIsAuthed} page="Overview" /> : <Redirect to={Routes.login().link()} />}
+          </Route>
+          <Route exact path={Routes.favourites().router}>
+            {isAuthed ? <Dashboard setIsAuthed={setIsAuthed} page="Favourites" /> : <Redirect to={Routes.login().link()} />}
+          </Route>
+          <Route exact path={Routes.community().router}>
+            {isAuthed ? <Dashboard setIsAuthed={setIsAuthed} page="Community" /> : <Redirect to={Routes.login().link()} />}
           </Route>
         </Switch>
       </Router>

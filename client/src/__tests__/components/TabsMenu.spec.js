@@ -36,7 +36,7 @@ describe('TabsMenu', () => {
 
     expect(rendered.matchesElement(
       <VGroup role="tablist" className="TabsMenu" fullHeight flexNone>
-        <Link className="TitleContainer" to={Routes.dashboard().link()}>
+        <Link className="TitleContainer" to={Routes.overview().link()}>
           <Group className="CheckThe">checkthe</Group>
           <Group className="Weather">weather</Group>
         </Link>
