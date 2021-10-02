@@ -20,7 +20,7 @@ app.get('*', (req, res) => { // Handle all other GET requests by returning the R
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
@@ -41,5 +41,5 @@ const server = app.listen(PORT, () => {
 
 //   socket.on("disconnect", () => {
 //     console.log("USER DISCONNECTED");
-  // });
+// });
 // });
