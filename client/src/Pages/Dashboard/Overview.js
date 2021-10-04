@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import BottomCards from 'components/BottomCards'
 
 import TabsMenu from 'components/TabsMenu'
 import getTabs from 'helpers/getTabs'
@@ -6,10 +7,6 @@ import { unauthedRequester } from 'helpers/requesters'
 import TitleHeader from 'components/TitleHeader'
 
 import styles from './Overview.module.scss'
-
-const box = () => (
-  <div className={styles.BottomCards}> </div>
-);
 
 function Overview({ name, logout }) {
   const [owmData, setOwmData] = useState({})
@@ -26,38 +23,6 @@ function Overview({ name, logout }) {
     setweatherApiData(response)
   }
 
-  function BuildTable(){
-    return(
-      <div className={styles.BottomCard}>
-            <p className={styles.BottomCardTitle}>Out On The Water</p>
-            <p className={styles.BottomCardSubTitle}>Boating and Fishing</p>
-            <div className={styles.BottomCardRow}>
-            <div className={styles.BottomCardTextLeft}>
-              <p>Next High Tide</p> </div>
-            <div className={styles.BottomCardTextRight}>
-              <p>4</p></div>
-            </div>
-            <div className={styles.Divider}></div>
-            <div className={styles.BottomCardRow}>
-            <div className={styles.BottomCardTextLeft}> <p>Next Low Tide</p> </div>
-            <div className={styles.BottomCardTextRight}>
-              <p>3</p></div>
-            </div>
-            <div className={styles.Divider}></div>
-            <div className={styles.BottomCardRow}>
-            <div className={styles.BottomCardTextLeft}> <p>Wind Speed</p> </div>
-            <div className={styles.BottomCardTextRight}>
-              <p>2</p></div>
-            </div>
-            <div className={styles.Divider}></div>
-            <div className={styles.BottomCardRow}>
-            <div className={styles.BottomCardTextLeft}> <p>Wind Direction</p> </div>
-            <div className={styles.BottomCardTextRight}>
-              <p>1</p></div>
-            </div>
-          </div>
-    )
-  }
   useEffect(() => {
     getOwmWeatherData()
     getWeatherApiData()
@@ -84,13 +49,11 @@ function Overview({ name, logout }) {
             <p className={styles.CardText}>{`${owmData?.main?.humidity}%`}</p>
           </div>
           <div className={styles.Card}>
-            <p className={styles.CardTitle}>Chance of ranfall</p>
+            <p className={styles.CardTitle}>Chance of rainfall</p>
             <p className={styles.CardText}>{`${weatherApiData?.forecast?.forecastday[0]?.day?.daily_chance_of_rain}%`}</p>
           </div>
         </div>
-        <div className={styles.BottomCards}>
-          <BuildTable/>
-      </div>
+        <BottomCards />
       </div>
     </div>
   )
