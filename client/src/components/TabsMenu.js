@@ -13,7 +13,7 @@ import styles from './TabsMenu.module.scss';
 function TabsMenu(props) {
   return (
     <VGroup role="tablist" className={clsx(styles.TabsMenu, props.className)} fullHeight flexNone>
-      <Link className={styles.TitleContainer} to={Routes.dashboard().link()}>
+      <Link className={styles.TitleContainer} to={Routes.overview().link()}>
         <Group className={styles.CheckThe}>checkthe</Group>
         <Group className={styles.Weather}>weather</Group>
       </Link>
