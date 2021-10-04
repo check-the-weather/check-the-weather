@@ -1,7 +1,17 @@
 
-const dashboard = () => ({
+const overview = () => ({
   router: '/',
   link: () => '/',
+});
+
+const favourites = () => ({
+  router: '/favourites',
+  link: () => '/favourites',
+});
+
+const community = () => ({
+  router: '/community',
+  link: () => '/community',
 });
 
 const login = () => ({
@@ -15,7 +25,9 @@ const register = () => ({
 });
 
 const Routes = {
-  dashboard,
+  overview,
+  favourites,
+  community,
   login,
   register,
 };

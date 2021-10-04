@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { toast } from 'react-toastify'
+
 import { authedRequester } from 'helpers/requesters'
-
 import Overview from './Overview'
+import Favourites from './Favourites'
+import Community from './Community'
 
-function Dashboard({ setIsAuthed }) {
+function Dashboard({ setIsAuthed, page }) {
 
   const [ name, setName] = useState('')
 
-  async function getName() {
+  async function getUserData() {
 
     try {
       const response = await authedRequester('/dashboard').get().json() 
@@ -26,12 +29,34 @@ function Dashboard({ setIsAuthed }) {
   }
 
   useEffect(() => {
-    getName()
+    getUserData()
   }, [])
 
+  function getPageComponent(page) {
+    switch(page) {
+      case 'Overview':
+        return <Overview name={name} logout={logout} />
+      case 'Favourites':
+        return <Favourites name={name} logout={logout} />
+      case 'Community':
+        return <Community name={name} logout={logout} />
+      default:
+        return <Overview name={name} logout={logout} />
+    }
+  }
+
+  const targetPage = getPageComponent(page)
+
   return (
-    <Overview name={name} logout={logout}/>
+    <>
+      {targetPage}
+    </>
   )
 }
+
+Dashboard.propTypes = {
+  setIsAuthed: PropTypes.func,
+  page: PropTypes.string,
+};
 
 export default Dashboard;

@@ -11,7 +11,7 @@ import { ReactComponent as SignoutIcon } from 'components/icons/signout.svg'
     {
       id: 'Overview',
       isSelected: selectedTab === 'Overview',
-      to: Routes.dashboard().link(),
+      to: Routes.overview().link(),
       'aria-label': 'Overview',
       'aria-controls': 'Overview',
       svg: <OverviewIcon />,
@@ -19,7 +19,7 @@ import { ReactComponent as SignoutIcon } from 'components/icons/signout.svg'
     {
       id: 'Favourites',
       isSelected: selectedTab === 'Favourites',
-      to: Routes.dashboard().link(),
+      to: Routes.favourites().link(),
       'aria-label': 'Favourites',
       'aria-controls': 'Favourites',
       svg: <FavouritesIcon />,
@@ -27,7 +27,7 @@ import { ReactComponent as SignoutIcon } from 'components/icons/signout.svg'
     {
       id: 'Community',
       isSelected: selectedTab === 'Community',
-      to: Routes.dashboard().link(),
+      to: Routes.community().link(),
       'aria-label': 'Community',
       'aria-controls': 'Community',
       svg: <CommunityIcon />,

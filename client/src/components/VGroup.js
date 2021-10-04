@@ -16,6 +16,7 @@ function VGroup(props) {
         [styles['VGroup--FlexNone']]: props.flexNone,
         [styles['VGroup--Flex1']]: props.flex1,
         [styles['VGroup--FullHeight']]: props.fullHeight,
+        [styles['VGroup--FullWidth']]: props.fullWidth,
         [styles['VGroup--CenteredContent']]: props.centeredContent,
       })}
       style={style}
