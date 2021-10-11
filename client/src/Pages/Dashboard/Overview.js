@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import BottomCards from 'components/BottomCards'
 import PropTypes from 'prop-types'
 
 import Group from 'components/Group'
@@ -38,6 +39,7 @@ function Overview({ name, logout }) {
       <VGroup fullHeight fullWidth>
         <TitleHeader title="Overview" name={name} />
         <TopCards data={topCardsData} />
+        <BottomCards />
       </VGroup>
     </Group>
   )
