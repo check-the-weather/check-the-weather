@@ -2,39 +2,35 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 import DownloadButton from "components/DownloadButton";
+import DownloadModal from 'components/DownloadModal';
 import { ReactComponent as DownloadIcon } from 'components/icons/download.svg'
 
+
 describe('DownloadButton', () =>{
-  let MOCK_ON_CLICK;
-
-  beforeEach(() => {
-    MOCK_ON_CLICK = jest.fn();
-  });
-
-
   function render() {
-    return shallow(<DownloadButton onClick={MOCK_ON_CLICK} />);
+    return shallow(<DownloadButton />);
   }
 
-    test('it should be a button', () => {
+  test('it should be a button', () => {
     const rendered = render();
 
     expect(rendered.matchesElement(
-      <button
-        className="DownloadButton"
-      >
-        <DownloadIcon />
-      </button>,
+      <>
+        <button className="DownloadButton"><DownloadIcon /></button>
+      </>
     )).toBe(true);
   });
 
-  describe('onClick', () => {
-    test('calls the onClick prop', () => {
-      const rendered = render();
+  test('should show modal when clicked', () => {
+    const rendered = render();
 
-      rendered.simulate('click');
+    rendered.childAt(0).simulate('click');
 
-      expect(MOCK_ON_CLICK).toHaveBeenCalledTimes(1);
-    });
+    expect(rendered.matchesElement(
+      <>
+        <button className="DownloadButton"><DownloadIcon /></button>
+        <DownloadModal />
+      </>
+    )).toBe(true)
   });
 });
