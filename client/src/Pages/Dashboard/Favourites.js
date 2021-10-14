@@ -7,8 +7,6 @@ import TabsMenu from 'components/TabsMenu'
 import getTabs from 'helpers/getTabs'
 import TitleHeader from 'components/TitleHeader'
 
-// import styles from './Favourites.module.scss'
-
 function Favourites({ name, logout }) {
   const tabs = getTabs('Commmunity', logout)
 
@@ -16,8 +14,7 @@ function Favourites({ name, logout }) {
     <Group fullHeight fullWidth>
       <TabsMenu tabs={tabs} />
       <VGroup fullHeight fullWidth>
-        <TitleHeader title="Favourites" name={name} />
-
+        <TitleHeader title="Favourites" name={name} download />
       </VGroup>
     </Group>
   )
