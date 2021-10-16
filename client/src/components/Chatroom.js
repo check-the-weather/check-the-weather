@@ -12,14 +12,9 @@ function Chatroom({ name }) {
   const [textInput, setTextInput] = useState('');
   const [chat, setChat] = useState([]);
 
-  socketRef.current.on("newperson", (args) => {
-    console.log(args); 
-  });
-
   useEffect(() => {
-    socketRef.current = io('http://localhost:8080');
+    socketRef.current = io();
     socketRef.current.on('receive-message', ({ name, message }) => {
-      console.log(`${name}: ${message}`)
       setChat([...chat, { name, message }]);
     });
 

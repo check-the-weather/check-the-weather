@@ -23,12 +23,8 @@ app.get('*', (req, res) => { // Handle all other GET requests by returning the R
 
 /* Socket.io server*/
 io.on('connection', (socket) => {
-  console.log('user connected')
-  console.log(socket.id)
-  socket.emit("newperson", `${socket.id}`);
   socket.on('send-message', ({ name, message }) => {
-    console.log(`${name}: ${message}`)
-    socket.emit('receive-message', { name, message });
+    io.emit('receive-message', { name, message });
   })
 });
 
