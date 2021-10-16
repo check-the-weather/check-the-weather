@@ -20,8 +20,6 @@ function Community({ name, logout }) {
       <VGroup fullHeight fullWidth>
         <TitleHeader title="Community" name={name} />
         <Chatroom name={name} />
-        
-
       </VGroup>
     </Group>
   )
