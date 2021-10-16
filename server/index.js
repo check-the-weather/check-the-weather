@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
@@ -21,11 +22,11 @@ app.get('*', (req, res) => { // Handle all other GET requests by returning the R
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
-/* Socket.io server*/
+/* Socket.io server */
 io.on('connection', (socket) => {
   socket.on('send-message', ({ name, message }) => {
     io.emit('receive-message', { name, message });
-  })
+  });
 });
 
 /* Express and Socket.io listening */
