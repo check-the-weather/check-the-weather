@@ -66,7 +66,6 @@ function App() {
             {isAuthed ? <Dashboard setIsAuthed={setIsAuthed} page="Favourites" /> : <Redirect to={Routes.login().link()} />}
           </Route>
           <Route exact path={Routes.community().router}>
-            {console.log(isAuthed)}
             {isAuthed ? <Dashboard setIsAuthed={setIsAuthed} page="Community" /> : <Redirect to={Routes.login().link()} />}
           </Route>
         </Switch>

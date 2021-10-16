@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import clsx from 'clsx'
 import Group from './Group'
 
@@ -29,5 +30,13 @@ function BottomCard({ title, titleColor, subtitle, rows, status }) {
     </div>
   )
 }
+
+BottomCard.propTypes = {
+  title: PropTypes.string,
+  titleColor: PropTypes.string,
+  subtitle: PropTypes.string,
+  rows: PropTypes.array,
+  status: PropTypes.object
+};
 
 export default BottomCard

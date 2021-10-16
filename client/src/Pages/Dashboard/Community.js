@@ -8,9 +8,6 @@ import getTabs from 'helpers/getTabs'
 import TitleHeader from 'components/TitleHeader'
 import Chatroom from 'components/Chatroom'
 
-
-// import styles from './Community.module.scss'
-
 function Community({ name, logout }) {
   const tabs = getTabs('Community', logout)
 
