@@ -1,0 +1,23 @@
+.Chatroom {
+  margin: 0px 25px 37px 25px;
+  height: calc(100% - 151px);
+  background-color: white;
+  border: 1px solid #DFE0EB;
+  border-radius: 8px;
+  justify-content: space-between;
+}
+
+.ChatContainer {
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scroll-snap-type: y proximity;
+  padding-left: 20px;
+
+  div:last-child {
+    scroll-snap-align: end;
+  }
+}
+
+.BlueText {
+  color: #3751FF;
+}

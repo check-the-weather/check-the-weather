@@ -29,6 +29,7 @@ function TitleHeader({ title, name, download }) {
 TitleHeader.propTypes = {
   title: PropTypes.string,
   name: PropTypes.string,
+  download: PropTypes.bool,
 };
 
 export default TitleHeader;

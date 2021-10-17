@@ -1,0 +1,54 @@
+.ChatroomInputRow {
+  height: 70px;
+  background-color: #363740;
+  padding: 20px;
+  border: 1px solid #DFE0EB;
+  border-radius: 8px;
+}
+
+.ChatroomInput {
+  padding: 0;
+  border: 0;
+  outline: 0;
+
+  height: 70px;
+  width: calc(90% - 40px);;
+  border-radius: 8px 0px 0px 8px;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 45px;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+  color: #3751FF;
+
+
+
+  &::placeholder {
+    color: #3751FF;
+    opacity: 0.4;
+  }
+}
+
+.ChatroomInputButton {
+  composes: Button from "components/Button.module.scss";
+  background-color: #3751FF;
+  color: #F7F8FC;
+  width: 10%;
+
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 45px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.3px;
+  border-radius: 0px 8px 8px 0px;
+}
+
+@media (max-width: 1230px) {
+  .ChatroomInputButton {
+    font-size: 20px;
+  }
+}

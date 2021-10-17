@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import Group from 'components/Group';
 
@@ -66,5 +67,9 @@ function DownloadModal({ setIsOpen }) {
       </div>
     );
 }
+
+DownloadModal.propTypes = {
+  setIsOpen: PropTypes.func.isRequired,
+};
 
 export default DownloadModal;
