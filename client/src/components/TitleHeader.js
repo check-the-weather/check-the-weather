@@ -13,7 +13,7 @@ function TitleHeader({ title, name, download }) {
         <h1 className={styles.TitleText}>{title}</h1>
       </Group>
       <Group className={styles.RightContainer} fullWidth>
-        {download && <DownloadButton />}
+        {!!download && <DownloadButton data={download} />}
         <div className={styles.Divider} />
         <Group className={styles.NameContainer} centeredContent>
           <p className={styles.Name}>{name}</p>
@@ -29,7 +29,7 @@ function TitleHeader({ title, name, download }) {
 TitleHeader.propTypes = {
   title: PropTypes.string,
   name: PropTypes.string,
-  download: PropTypes.bool,
+  download: PropTypes.array,
 };
 
 export default TitleHeader;

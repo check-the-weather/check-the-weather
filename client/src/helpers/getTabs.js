@@ -1,7 +1,6 @@
  import Routes from "./Routes";
 
 import { ReactComponent as OverviewIcon } from 'components/icons/overview.svg'
-import { ReactComponent as FavouritesIcon } from 'components/icons/favourites.svg'
 import { ReactComponent as CommunityIcon } from 'components/icons/community.svg'
 import { ReactComponent as SignoutIcon } from 'components/icons/signout.svg'
 
@@ -15,14 +14,6 @@ import { ReactComponent as SignoutIcon } from 'components/icons/signout.svg'
       'aria-label': 'Overview',
       'aria-controls': 'Overview',
       svg: <OverviewIcon />,
-    },
-    {
-      id: 'Favourites',
-      isSelected: selectedTab === 'Favourites',
-      to: Routes.favourites().link(),
-      'aria-label': 'Favourites',
-      'aria-controls': 'Favourites',
-      svg: <FavouritesIcon />,
     },
     {
       id: 'Community',
