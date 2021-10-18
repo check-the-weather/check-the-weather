@@ -5,7 +5,7 @@ import Group from 'components/Group';
 
 import styles from './DownloadModal.module.scss';
 
-function DownloadModal({ setIsOpen }) {
+function DownloadModal({ setIsOpen, data }) {
   const ModalRef = useRef();
 
   useEffect(() => {
@@ -26,14 +26,17 @@ function DownloadModal({ setIsOpen }) {
     setIsOpen(false);
   }
 
-  function downloadData(userFavourites) {
+  function downloadData() {
     const { Parser } = require('json2csv');
-    const exportedFileName = 'exportedFavourites.csv';
+    const exportedFileName = 'exportedForcast.csv';
+
+    const fields = ['field1', 'field2', 'field3'];
+    const opts = { fields };
 
     // Convert JSON to CSV
     try {
-      const parser = new Parser();
-      var csv = parser.parse(userFavourites);
+      const parser = new Parser(opts);
+      var csv = parser.parse(data);
       console.log(csv);
     } catch (err) {
       console.error(err);
@@ -59,7 +62,7 @@ function DownloadModal({ setIsOpen }) {
 
     return (
       <div className={styles.DownloadModal} ref={ModalRef} >
-        <p className={styles.ConfirmText}>Are you sure you want to download your favourites?</p>
+        <p className={styles.ConfirmText}>Are you sure you want to download the daily forecast?</p>
         <Group className={styles.BtnContainer}>
           <button onClick={downloadData} className={styles.ConfirmDownload}>Yes</button>
           <button onClick={closeModal} className={styles.DenyDownload}>No</button>
