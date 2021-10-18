@@ -2,7 +2,7 @@
   margin: 0px 25px 37px 25px;
   height: calc(100% - 151px);
   background-color: white;
-  border: 1px solid #DFE0EB;
+  border: 1px solid #dfe0eb;
   border-radius: 8px;
   justify-content: space-between;
 }
@@ -19,5 +19,11 @@
 }
 
 .BlueText {
-  color: #3751FF;
+  color: #3751ff;
+}
+
+.UserImage {
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
 }
