@@ -37,7 +37,7 @@ function Overview({ name, logout }) {
     <Group fullHeight fullWidth>
       <TabsMenu tabs={tabs}/>
       <VGroup fullHeight fullWidth>
-        <TitleHeader title="Overview" name={name} />
+        <TitleHeader title="Overview" name={name} download={weatherApiData?.forecast?.forecastday[0]?.hour} />
         <TopCards data={topCardsData} />
         <BottomCards />
       </VGroup>

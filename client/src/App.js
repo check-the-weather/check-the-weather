@@ -62,9 +62,6 @@ function App() {
           <Route exact path={Routes.overview().router}>
             {isAuthed ? <Dashboard setIsAuthed={setIsAuthed} page="Overview" /> : <Redirect to={Routes.login().link()} />}
           </Route>
-          <Route exact path={Routes.favourites().router}>
-            {isAuthed ? <Dashboard setIsAuthed={setIsAuthed} page="Favourites" /> : <Redirect to={Routes.login().link()} />}
-          </Route>
           <Route exact path={Routes.community().router}>
             {isAuthed ? <Dashboard setIsAuthed={setIsAuthed} page="Community" /> : <Redirect to={Routes.login().link()} />}
           </Route>

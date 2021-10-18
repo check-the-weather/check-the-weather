@@ -4,7 +4,6 @@ import { toast } from 'react-toastify'
 
 import { authedRequester } from 'helpers/requesters'
 import Overview from './Overview'
-import Favourites from './Favourites'
 import Community from './Community'
 
 function Dashboard({ setIsAuthed, page }) {
@@ -36,8 +35,6 @@ function Dashboard({ setIsAuthed, page }) {
     switch(page) {
       case 'Overview':
         return <Overview name={name} logout={logout} />
-      case 'Favourites':
-        return <Favourites name={name} logout={logout} />
       case 'Community':
         return <Community name={name} logout={logout} />
       default:

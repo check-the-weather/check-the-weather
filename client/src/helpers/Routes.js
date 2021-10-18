@@ -1,12 +1,6 @@
-
 const overview = () => ({
   router: '/',
   link: () => '/',
-});
-
-const favourites = () => ({
-  router: '/favourites',
-  link: () => '/favourites',
 });
 
 const community = () => ({
@@ -26,7 +20,6 @@ const register = () => ({
 
 const Routes = {
   overview,
-  favourites,
   community,
   login,
   register,
