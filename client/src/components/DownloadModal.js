@@ -5,6 +5,9 @@ import Group from 'components/Group';
 
 import styles from './DownloadModal.module.scss';
 
+const { Parser } = require('json2csv');
+
+
 function DownloadModal({ setIsOpen, data }) {
   const ModalRef = useRef();
 
@@ -26,17 +29,36 @@ function DownloadModal({ setIsOpen, data }) {
     setIsOpen(false);
   }
 
+  const dataToDownload = data.map(data => {
+    return {
+      time: data.time,
+      temperature_degees: data.temp_c,
+      is_day_time: !!data.is_day,
+      wind_speed_kph: data.wind_kph,
+      wind_direction: data.wind_dir,
+      pressure_pascals: data.pressure_mb * 100,
+      precipitation_mm: data.precip_mm,
+      humidity: data.humidity,
+      dewpoint_degrees: data.dewpoint_c,
+      cloud_coverage: data.cloud,
+      chance_of_rain: data.chance_of_rain,
+      uv_index: data.uv,
+      gust_kph: data.gust_kph,
+    }
+  });
+
   function downloadData() {
-    const { Parser } = require('json2csv');
     const exportedFileName = 'exportedForcast.csv';
 
-    const fields = ['field1', 'field2', 'field3'];
-    const opts = { fields };
+    // const fields = ['temp_c', 'wind_kph', 'wind_mph'];
+    // const opts = { fields };
 
     // Convert JSON to CSV
+    let csv;
+
     try {
-      const parser = new Parser(opts);
-      var csv = parser.parse(data);
+      const parser = new Parser();
+      csv = parser.parse(dataToDownload);
       console.log(csv);
     } catch (err) {
       console.error(err);
