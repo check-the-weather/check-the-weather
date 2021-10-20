@@ -8,7 +8,6 @@ import getTabs from 'helpers/getTabs'
 import { unauthedRequester } from 'helpers/requesters'
 import TitleHeader from 'components/TitleHeader'
 import TopCards from 'components/TopCards'
-import MiddleCard from 'components/MiddleCard'
 import BottomCards from 'components/BottomCards'
 
 
