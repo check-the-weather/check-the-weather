@@ -40,7 +40,6 @@ function Overview({ name, logout }) {
       <VGroup fullHeight fullWidth>
         <TitleHeader title="Overview" name={name} download={weatherApiData?.forecast?.forecastday[0]?.hour} />
         <TopCards data={topCardsData} />
-        <MiddleCard />
         <BottomCards />
       </VGroup>
     </Group>
