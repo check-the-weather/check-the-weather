@@ -39,7 +39,7 @@ function Chatroom({ name }) {
   function renderChat() {
     return chat.map(({ name, message }, index) => (
       <div key={index}>
-        <h3>
+        <h3 className={styles.Row}>
           <img className={styles.UserImage} src={`https://avatars.dicebear.com/api/identicon/${name}.svg`} alt="User profile" />
           {name}: <span className={styles.BlueText}>{message}</span>
         </h3>
