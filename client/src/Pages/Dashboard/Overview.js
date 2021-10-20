@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import BottomCards from 'components/BottomCards'
 import PropTypes from 'prop-types'
 
 import Group from 'components/Group'
@@ -9,6 +8,8 @@ import getTabs from 'helpers/getTabs'
 import { unauthedRequester } from 'helpers/requesters'
 import TitleHeader from 'components/TitleHeader'
 import TopCards from 'components/TopCards'
+import BottomCards from 'components/BottomCards'
+
 
 function Overview({ name, logout }) {
   const [owmData, setOwmData] = useState({})
