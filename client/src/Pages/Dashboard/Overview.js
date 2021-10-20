@@ -9,6 +9,7 @@ import getTabs from 'helpers/getTabs'
 import { unauthedRequester } from 'helpers/requesters'
 import TitleHeader from 'components/TitleHeader'
 import TopCards from 'components/TopCards'
+import MiddleCard from 'components/MiddleCard'
 
 function Overview({ name, logout }) {
   const [owmData, setOwmData] = useState({})
@@ -29,6 +30,8 @@ function Overview({ name, logout }) {
     getWeatherApiData()
   }, [])
 
+  
+ 
   const tabs = getTabs('Overview', logout)
 
   const topCardsData = { owmData, weatherApiData }
@@ -39,7 +42,8 @@ function Overview({ name, logout }) {
       <VGroup fullHeight fullWidth>
         <TitleHeader title="Overview" name={name} />
         <TopCards data={topCardsData} />
-        <BottomCards />
+        <MiddleCard data={topCardsData}/>
+        <BottomCards data={topCardsData} />
       </VGroup>
     </Group>
   )
