@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import BottomCards from 'components/BottomCards'
 import PropTypes from 'prop-types'
 
 import Group from 'components/Group'
@@ -9,6 +8,9 @@ import getTabs from 'helpers/getTabs'
 import { unauthedRequester } from 'helpers/requesters'
 import TitleHeader from 'components/TitleHeader'
 import TopCards from 'components/TopCards'
+import MiddleCard from 'components/MiddleCard'
+import BottomCards from 'components/BottomCards'
+
 
 function Overview({ name, logout }) {
   const [owmData, setOwmData] = useState({})
@@ -39,6 +41,7 @@ function Overview({ name, logout }) {
       <VGroup fullHeight fullWidth>
         <TitleHeader title="Overview" name={name} download={weatherApiData?.forecast?.forecastday[0]?.hour} />
         <TopCards data={topCardsData} />
+        <MiddleCard />
         <BottomCards />
       </VGroup>
     </Group>
