@@ -1,0 +1,56 @@
+.DownloadModal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: #363740;
+  z-index: 100;
+  animation: fade 0.2s ease;
+  width: 50%;
+  height: 50%;
+  left: 25%;
+  top: 25%;
+  border-radius: 10px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+.ConfirmText {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 45px;
+  letter-spacing: 0.3px;
+  color: #f7f8fc;
+}
+
+.BtnContainer {
+  height: 69px;
+  width: 100%;
+  justify-content: center;
+}
+
+.ConfirmDownload {
+  border-radius: 8px;
+  border: 1px solid #3751ff;
+  background: #3751ff;
+  color: #f7f8fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 45px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: 170px;
+}
+
+.DenyDownload {
+  composes: ConfirmDownload;
+  background-color: #f7f8fc;
+  color: #363740;
+}

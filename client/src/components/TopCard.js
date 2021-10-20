@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import VGroup from 'components/VGroup'
 
@@ -12,6 +13,15 @@ function TopCard({ title, value, unit}) {
       <p className={styles.Value}>{`${valueWithUnit}`}</p>
     </VGroup>
   )
+}
+
+TopCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+  unit: PropTypes.string,
 }
 
 export default TopCard

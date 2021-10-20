@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Group from 'components/Group'
 import TopCard from 'components/TopCard'
@@ -21,6 +22,13 @@ function TopCards({ data }) {
       <TopCard title="Pressure" value={pressure} unit=" hPa"/>      
     </Group>
   )
+}
+
+TopCards.propTypes = {
+  data: PropTypes.shape({
+    weatherApiData: PropTypes.object,
+    owmData: PropTypes.object
+  }),
 }
 
 export default TopCards

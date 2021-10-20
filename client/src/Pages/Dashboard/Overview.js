@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import BottomCards from 'components/BottomCards'
 import PropTypes from 'prop-types'
 
 import Group from 'components/Group'
@@ -40,7 +39,7 @@ function Overview({ name, logout }) {
     <Group fullHeight fullWidth>
       <TabsMenu tabs={tabs}/>
       <VGroup fullHeight fullWidth>
-        <TitleHeader title="Overview" name={name} />
+        <TitleHeader title="Overview" name={name} download={weatherApiData?.forecast?.forecastday[0]?.hour} />
         <TopCards data={topCardsData} />
         <MiddleCard data={topCardsData}/>
         <BottomCards data={topCardsData} />
