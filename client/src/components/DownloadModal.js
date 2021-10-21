@@ -7,7 +7,6 @@ import styles from './DownloadModal.module.scss';
 
 const { Parser } = require('json2csv');
 
-
 function DownloadModal({ setIsOpen, data }) {
   const ModalRef = useRef();
 
@@ -48,10 +47,7 @@ function DownloadModal({ setIsOpen, data }) {
   });
 
   function downloadData() {
-    const exportedFileName = 'exportedForcast.csv';
-
-    // const fields = ['temp_c', 'wind_kph', 'wind_mph'];
-    // const opts = { fields };
+    const exportedFileName = 'todays_forecast.csv';
 
     // Convert JSON to CSV
     let csv;
