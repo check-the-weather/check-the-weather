@@ -1,9 +1,9 @@
 .TopCard {
   align-items: center;
-  height: 150px;
+  height: 80px;
   width: 15%;
 
-  background: #FFFFFF;
+  background-color: #FFFFFF;
 
   border: 1px solid #DFE0EB;
   box-sizing: border-box;
@@ -13,26 +13,18 @@
 .Title {
   color: #9FA2B4;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 24px;
   letter-spacing: 0.4px;
+  margin-bottom: 7.5px;
+  margin-top: 2.5px;
 }
 
 .Value {
   font-weight: bold;
-  font-size: 40px;
-  line-height: 50px;
+  font-size: 30px;
+  line-height: 25px;
   letter-spacing: 1px;
   color: #252733;
   margin: 0;
-}
-
-@media (max-width: 1600px) {
-  .Title {
-    font-size: 15px;
-  }
-
-  .Value {
-    font-size: 30px;
-  }
 }
