@@ -9,6 +9,7 @@ import { unauthedRequester } from 'helpers/requesters'
 import TitleHeader from 'components/TitleHeader'
 import TopCards from 'components/TopCards'
 import MiddleCard from 'components/MiddleCard'
+import BottomCards from 'components/BottomCards'
 
 function Overview({ name, logout }) {
   const [owmData, setOwmData] = useState({})
@@ -30,7 +31,7 @@ function Overview({ name, logout }) {
   }, [])
 
   
- 
+
   const tabs = getTabs('Overview', logout)
 
   const topCardsData = { owmData, weatherApiData }

@@ -29,7 +29,6 @@ function BottomCards({ data }) {
 
   
   function getWaterStatus(windspeed) {
-    console.log(windspeed)
     if (windspeed >= 20) {
       return { code: 'bad', message: 'Poor Conditions'}
     } 
@@ -47,7 +46,6 @@ function BottomCards({ data }) {
   }
 
   function updateSunStatus(uvindex){
-    console.log(uvindex)
     if (uvindex > 5) {
       return { code: 'bad', message: `UV Index of ${uvindex}`}
     }

@@ -34,7 +34,6 @@ function DownloadModal({ setIsOpen }) {
     try {
       const parser = new Parser();
       var csv = parser.parse(userFavourites);
-      console.log(csv);
     } catch (err) {
       console.error(err);
     }

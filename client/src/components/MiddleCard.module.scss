@@ -2,8 +2,7 @@
   display: flex;
   align-items: left;
 
-  height: 400px;
-  width: calc(100% - 50px);
+  height: 500px;
   margin: 0px 25px 25px 25px;
 
   background: #FFFFFF;
@@ -13,38 +12,18 @@
   border-radius: 8px;
 }
 
-.Title {
-  color: #9FA2B4;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 24px;
-  letter-spacing: 0.4px;
-  margin-left: 20px;
-}
 
 .Graph{
   display: flex;
-  width:75%;
+  width: 75%;
   background: #ffffff;
-  margin-left: 20px;
-  border: px solid #DFE0EB;
+  margin: 0px 0px 0px 0px;
   box-sizing: border-box;
-  border-radius: 8px;
+  border-right: 1px solid #dadada;
+  
 }
 
-.MiddleCardRow {
+.Cells{
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.VerticalDivider {
-  display: flex;
-  margin-left: calc(75% + 20px);
-  width: 1px;
-  height: 100%;
-  background-color: #dadada;
-
+  width: 25%;
 }
