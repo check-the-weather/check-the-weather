@@ -55,7 +55,6 @@ function DownloadModal({ setIsOpen, data }) {
     try {
       const parser = new Parser();
       csv = parser.parse(dataToDownload);
-      console.log(csv);
     } catch (err) {
       console.error(err);
     }
