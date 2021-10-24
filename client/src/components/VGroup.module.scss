@@ -1,0 +1,25 @@
+.VGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.VGroup--FlexNone {
+  flex: none;
+}
+
+.VGroup--Flex1 {
+  flex: 1;
+}
+
+.VGroup--FullHeight {
+  height: 100%;
+}
+
+.VGroup--FullWidth {
+  width: 100%;
+}
+
+.VGroup--CenteredContent {
+  align-items: center;
+  justify-content: center;
+}

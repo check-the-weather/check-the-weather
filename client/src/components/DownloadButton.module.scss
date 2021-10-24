@@ -1,0 +1,4 @@
+.DownloadButton {
+  composes: Button from "components/Button.module.scss";
+  display: inline-flex;
+}

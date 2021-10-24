@@ -1,14 +1,16 @@
 const express = require('express');
 
 const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 const cors = require('cors');
 const path = require('path');
 
 const PORT = process.env.PORT || 3001;
 
-// Middleware
-app.use(cors()); // Allow Cross-Origin Resource Sharing
-app.use(express.json()); // Convert request body to JSON
+/* Express server */
+app.use(cors()); // Middleware - Allow Cross-Origin Resource Sharing
+app.use(express.json()); // Middleware - Convert request body to JSON
 
 app.use(express.static(path.resolve(__dirname, '../client/build'))); // Serve the files for the built React app
 
@@ -20,6 +22,14 @@ app.get('*', (req, res) => { // Handle all other GET requests by returning the R
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
-app.listen(PORT, () => {
+/* Socket.io server */
+io.on('connection', (socket) => {
+  socket.on('send-message', ({ name, message }) => {
+    io.emit('receive-message', { name, message });
+  });
+});
+
+/* Express and Socket.io listening */
+http.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });

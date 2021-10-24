@@ -1,0 +1,36 @@
+.MiddleCard {
+  display: flex;
+
+  height: 500px;
+  margin: 0px 25px 25px 25px;
+  background: #ffffff;
+  
+  border: 1px solid #DFE0EB;
+  border-radius: 8px;
+}
+
+
+.Graph {
+  display: flex;
+  width: 75%;
+  margin: 0px 0px 0px 0px;
+
+  h2 {
+    font-size: 20px;
+    margin-left: 25px;
+    margin-bottom: 5px;
+    color: #252733;
+  }
+
+  p {
+    font-size: 12px;
+    margin: 0;
+    margin-left: 25px;
+    color: #9FA2B4;
+  }
+}
+
+.Cells {
+  display: flex;
+  width: 25%;
+}

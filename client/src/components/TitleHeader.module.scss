@@ -1,0 +1,50 @@
+.TitleHeader {
+  margin: 25px 0px;
+}
+.LeftContainer {
+  margin-left: 25px;
+}
+
+.TitleText {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.RightContainer {
+  justify-content: flex-end;
+}
+
+.NameContainer {
+  margin-right: 25px;
+}
+
+.Name {
+  font-weight: bold;
+  margin: 0;
+}
+
+.UserImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  width: 36px;
+  margin-right: 25px;
+  border-radius: 50%;
+  border: 2px solid #dfe0eb;
+  overflow: hidden;
+}
+
+.UserImage {
+  width: 30px;
+  height: 30px;
+}
+
+.Divider {
+  background-color: #b8b8b8;
+  height: 40px;
+  width: 2px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
