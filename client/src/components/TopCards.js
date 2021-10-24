@@ -12,7 +12,7 @@ function TopCards({ data }) {
   const humidity = data?.owmData?.main?.humidity ?? ''
   const rainfallChance = data?.weatherApiData?.forecast?.forecastday[0]?.day?.daily_chance_of_rain ?? ''
   const pressure = data?.owmData?.main?.pressure ?? ''
-
+  
   return (
     <Group className={styles.TopCards}>
       <TopCard title="Temperature" value={temp} unit="°"/>

@@ -1,0 +1,29 @@
+.MiddleCard {
+  display: flex;
+  align-items: left;
+
+  height: 500px;
+  margin: 0px 25px 25px 25px;
+
+  background: #FFFFFF;
+
+  border: 1px solid #DFE0EB;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+
+.Graph {
+  display: flex;
+  width: 75%;
+  background: #ffffff;
+  margin: 0px 0px 0px 0px;
+  box-sizing: border-box;
+  border-right: 1px solid #dadada;
+  
+}
+
+.Cells {
+  display: flex;
+  width: 25%;
+}

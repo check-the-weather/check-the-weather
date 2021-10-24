@@ -1,0 +1,27 @@
+.Cell {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  margin: 0px 0px 0px 0px;
+  border: 1px solid #DFE0EB;
+  box-sizing: border-box;
+  height: 20%;
+}
+
+.Title {
+  color: #9FA2B4;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  margin-bottom: 0px;
+  margin-top: 2.5px;
+}
+
+.Value {
+  font-weight: bold;
+  font-size: 30px;
+  letter-spacing: 1px;
+  color: #252733;
+  margin: 10px 0px 0px 0px;
+}
