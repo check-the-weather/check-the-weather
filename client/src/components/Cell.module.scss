@@ -1,10 +1,9 @@
 .Cell {
   display: flex;
   align-items: center;
-  background: #ffffff;
-  margin: 0px 0px 0px 0px;
-  border: 1px solid #DFE0EB;
-  box-sizing: border-box;
+  margin: 0;
+  border-left: 1px solid #DFE0EB;
+  border-bottom: 1px solid #DFE0EB;
   height: 20%;
 }
 

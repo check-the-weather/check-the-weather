@@ -6,9 +6,15 @@ import DownloadModal from 'components/DownloadModal';
 import { ReactComponent as DownloadIcon } from 'components/icons/download.svg'
 
 
-describe('DownloadButton', () =>{
+describe('DownloadButton', () => {
+  let MOCK_DATA;
+
+  beforeEach(() => {
+    MOCK_DATA = [];
+  })
+  
   function render() {
-    return shallow(<DownloadButton />);
+    return shallow(<DownloadButton data={MOCK_DATA} />);
   }
 
   test('it should be a button', () => {
