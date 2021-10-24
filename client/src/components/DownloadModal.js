@@ -63,18 +63,7 @@ function DownloadModal({ setIsOpen, data }) {
     const blob = new Blob([csv], { type: 'text/csv;' });
     if (navigator.msSaveBlob) {
         navigator.msSaveBlob(blob, exportedFileName);
-    } else {
-        var link = document.createElement('a');
-      if (link.download !== undefined) {
-        var url = URL.createObjectURL(blob);
-        link.setAttribute("href", url);
-        link.setAttribute("download", exportedFileName);
-        link.style.visibility = 'hidden';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
-    }
+    } 
   }
 
     return (

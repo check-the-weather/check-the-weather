@@ -1,6 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import Group from './Group'
 import BottomCard from './BottomCard'
+
 import styles from './BottomCards.module.scss' 
 
 function BottomCards({ data }) {
@@ -10,7 +13,6 @@ function BottomCards({ data }) {
     const sunSetTime = data?.weatherApiData?.forecast?.forecastday[0]?.astro?.sunset ?? '' 
     const uvIndex = data?.weatherApiData?.current?.uv ?? '' 
 
-  
   const FISHING_ROWS = [
     { name: 'Next High Tide', value: '21:00 (5m)'},
     { name: 'Next Low Tide', value: '13:00 (0.85m)'},
@@ -68,6 +70,10 @@ function BottomCards({ data }) {
       <BottomCard title="Up in the sky" titleColor="orange" subtitle="Sunrise and Sunset" rows={SUN_ROWS} status={sunStatus} />
     </Group>
   )
+}
+
+BottomCards.propTypes = {
+  data: PropTypes.object,
 }
 
 export default BottomCards

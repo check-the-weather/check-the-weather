@@ -1,8 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import Group from './Group'
 import VGroup from './VGroup'
-import styles from './MiddleCard.module.scss' 
 import Cell from './Cell'
+
+import styles from './MiddleCard.module.scss' 
 
 function MiddleCard({ data }){
   function hotReducer(previous, current) {
@@ -36,5 +39,8 @@ function MiddleCard({ data }){
   )
 }
 
+MiddleCard.propTypes = {
+  data: PropTypes.object
+}
 
 export default MiddleCard

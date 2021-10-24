@@ -30,20 +30,18 @@ function Overview({ name, logout }) {
     getWeatherApiData()
   }, [])
 
-  
-
   const tabs = getTabs('Overview', logout)
 
-  const topCardsData = { owmData, weatherApiData }
+  const apiData = { owmData, weatherApiData }
 
   return (
     <Group fullHeight fullWidth>
       <TabsMenu tabs={tabs}/>
       <VGroup fullHeight fullWidth>
         <TitleHeader title="Overview" name={name} download={weatherApiData?.forecast?.forecastday[0]?.hour} />
-        <TopCards data={topCardsData} />
-        <MiddleCard data={topCardsData}/>
-        <BottomCards data={topCardsData} />
+        <TopCards data={apiData} />
+        <MiddleCard data={apiData}/>
+        <BottomCards data={apiData} />
       </VGroup>
     </Group>
   )
