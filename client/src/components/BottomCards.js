@@ -22,7 +22,7 @@ function BottomCards({ data }) {
 
   const SUN_ROWS = [
     { name: 'Sunrise', value: sunRiseTime},
-    { name: 'Best Sunrise Photo Opportunity', value:sunRiseTime },
+    { name: 'Best Sunrise Photo Opportunity', value: sunRiseTime },
     { name: 'Sunset', value: sunSetTime },
     { name: 'Best Sunset Photo Opportunity', value: sunSetTime},
   ];

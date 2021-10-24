@@ -78,7 +78,7 @@ function DownloadModal({ setIsOpen, data }) {
 }
 
 DownloadModal.propTypes = {
-  setIsOpen: PropTypes.func.isRequired,
+  setIsOpen: PropTypes.func,
 };
 
 export default DownloadModal;

@@ -13,7 +13,7 @@ describe('TitleHeader', () =>{
   beforeEach(() => {
     MOCK_TITLE = 'test title';
     MOCK_NAME = 'test name';
-    MOCK_DOWNLOAD = false;
+    MOCK_DOWNLOAD = undefined;
   });
 
   function render() {
@@ -46,7 +46,7 @@ describe('TitleHeader', () =>{
   });
 
   test('it should render with download functionality', () => {
-    MOCK_DOWNLOAD = true;
+    MOCK_DOWNLOAD = [];
     const rendered = render();
 
     expect(rendered.matchesElement(
@@ -57,7 +57,7 @@ describe('TitleHeader', () =>{
           </h1>
         </Group>
         <Group className="RightContainer" fullWidth={true}>
-          <DownloadButton />
+          <DownloadButton data={MOCK_DOWNLOAD}/>
           <div className="Divider" />
           <Group className="NameContainer" centeredContent={true}>
             <p className="Name">

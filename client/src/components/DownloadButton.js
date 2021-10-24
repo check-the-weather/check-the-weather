@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import DownloadModal from 'components/DownloadModal';
 import { ReactComponent as DownloadIcon } from 'components/icons/download.svg'
@@ -14,6 +15,10 @@ function DownloadButton({ data }) {
       {modalIsOpen && <DownloadModal setIsOpen={setIsOpen} data={data}/>}
     </>
   );
+}
+
+DownloadButton.propTypes = {
+  data: PropTypes.array.isRequired,
 }
 
 export default DownloadButton;
