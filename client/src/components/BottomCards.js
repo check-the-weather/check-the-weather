@@ -6,25 +6,51 @@ import BottomCard from './BottomCard'
 
 import styles from './BottomCards.module.scss' 
 
+import {addHoursToDate, addMinutesToDate, subtractMinutesFromDate} from 'helpers/Time'
+import {getRandomInt,getRandomFloat} from 'helpers/Numbers'
+
+
+
+
+
+
 function BottomCards({ data }) {
     const windSpeed = data?.weatherApiData?.current?.wind_kph ?? '' 
     const windDirection = data?.weatherApiData?.current?.wind_dir ?? ''
-    const sunRiseTime = data?.weatherApiData?.forecast?.forecastday[0]?.astro?.sunrise ?? '' 
-    const sunSetTime = data?.weatherApiData?.forecast?.forecastday[0]?.astro?.sunset ?? '' 
+    const sunriseTime = data?.weatherApiData?.forecast?.forecastday[0]?.astro?.sunrise ?? '' 
+    const sunsetTime = data?.weatherApiData?.forecast?.forecastday[0]?.astro?.sunset ?? '' 
     const uvIndex = data?.weatherApiData?.current?.uv ?? '' 
+    const nextLowTideHeight = getRandomFloat(-1.2, -1.5).toFixed(2)
+    const nextHighTideHeight = getRandomFloat(1.5, 1.9).toFixed(2)
 
+    const today = new Date()
+    const sunsetTimeDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), sunsetTime.substring(0, 2), sunsetTime.substring(3, 5))
+    const sunsetTimeDateConverted = addHoursToDate(sunsetTimeDate, 12)
+    const sunriseTimeDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), sunsetTime.substring(0, 2), sunriseTime.substring(3, 5))
+
+    
+    const sunsetPhotoTime = subtractMinutesFromDate(sunsetTimeDateConverted, getRandomInt(15, 30)).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+    const sunrisePhotoTime = subtractMinutesFromDate(sunriseTimeDate, getRandomInt(15, 30)).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+
+
+    let nextLowTide = addHoursToDate(new Date(), getRandomInt(5, 7))
+    nextLowTide = addMinutesToDate(new Date(nextLowTide), getRandomInt(0, 60)).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+    let nextHighTide = addHoursToDate(new Date(), getRandomInt(10, 14))
+    nextHighTide = addMinutesToDate(new Date(nextHighTide), getRandomInt(0, 60)).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+    
+    
   const FISHING_ROWS = [
-    { name: 'Next High Tide', value: '21:00 (5m)'},
-    { name: 'Next Low Tide', value: '13:00 (0.85m)'},
+    { name: 'Next High Tide', value: nextHighTide + " (" + nextHighTideHeight + "m)"},
+    { name: 'Next Low Tide', value: nextLowTide + " (" + nextLowTideHeight + " m)"},
     { name: 'Wind Speed', value: windSpeed + " km/h"},
     { name: 'Wind Direction', value: windDirection},
   ];
 
   const SUN_ROWS = [
-    { name: 'Sunrise', value: sunRiseTime},
-    { name: 'Best Sunrise Photo Opportunity', value: sunRiseTime },
-    { name: 'Sunset', value: sunSetTime },
-    { name: 'Best Sunset Photo Opportunity', value: sunSetTime},
+    { name: 'Sunrise', value: sunriseTime},
+    { name: 'Best Sunrise Photo Opportunity', value: sunrisePhotoTime },
+    { name: 'Sunset', value: sunsetTime },
+    { name: 'Best Sunset Photo Opportunity', value: sunsetPhotoTime},
   ];
 
   
