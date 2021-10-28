@@ -24,6 +24,7 @@ function MiddleCard({ data }){
   const hottestTime = Date.parse(hourlyData?.reduce(hotReducer).time) ? new Date(Date.parse(hourlyData?.reduce(hotReducer).time)).toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit' }) : '';
   const coldestTime = Date.parse(hourlyData?.reduce(coldReducer).time) ? new Date(Date.parse(hourlyData?.reduce(coldReducer).time)).toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit' }) : '';
   const todayTime = new Date().toLocaleDateString("en-US", { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+  
   return (
     <Group className={styles.MiddleCard}>
       <VGroup className={styles.Graph}>

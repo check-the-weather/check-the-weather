@@ -8,4 +8,4 @@ function getRandomFloat(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-export {getRandomInt, getRandomFloat}
+export { getRandomInt, getRandomFloat }

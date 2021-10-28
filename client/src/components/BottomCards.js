@@ -6,13 +6,8 @@ import BottomCard from './BottomCard'
 
 import styles from './BottomCards.module.scss' 
 
-import {addHoursToDate, addMinutesToDate, subtractMinutesFromDate} from 'helpers/Time'
-import {getRandomInt,getRandomFloat} from 'helpers/Numbers'
-
-
-
-
-
+import { addHoursToDate, addMinutesToDate, subtractMinutesFromDate } from 'helpers/time'
+import { getRandomInt,getRandomFloat } from 'helpers/random'
 
 function BottomCards({ data }) {
     const windSpeed = data?.weatherApiData?.current?.wind_kph ?? '' 
@@ -28,21 +23,18 @@ function BottomCards({ data }) {
     const sunsetTimeDateConverted = addHoursToDate(sunsetTimeDate, 12)
     const sunriseTimeDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), sunsetTime.substring(0, 2), sunriseTime.substring(3, 5))
 
-    
     const sunsetPhotoTime = subtractMinutesFromDate(sunsetTimeDateConverted, getRandomInt(15, 30)).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
     const sunrisePhotoTime = subtractMinutesFromDate(sunriseTimeDate, getRandomInt(15, 30)).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
-
 
     let nextLowTide = addHoursToDate(new Date(), getRandomInt(5, 7))
     nextLowTide = addMinutesToDate(new Date(nextLowTide), getRandomInt(0, 60)).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
     let nextHighTide = addHoursToDate(new Date(), getRandomInt(10, 14))
     nextHighTide = addMinutesToDate(new Date(nextHighTide), getRandomInt(0, 60)).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
     
-    
   const FISHING_ROWS = [
-    { name: 'Next High Tide', value: nextHighTide + " (" + nextHighTideHeight + "m)"},
-    { name: 'Next Low Tide', value: nextLowTide + " (" + nextLowTideHeight + " m)"},
-    { name: 'Wind Speed', value: windSpeed + " km/h"},
+    { name: 'Next High Tide', value: `${nextHighTide} (${nextHighTideHeight}m)`},
+    { name: 'Next Low Tide', value: `${nextLowTide} (${nextLowTideHeight}m)`},
+    { name: 'Wind Speed', value: windSpeed + ' km/h'},
     { name: 'Wind Direction', value: windDirection},
   ];
 
@@ -53,7 +45,6 @@ function BottomCards({ data }) {
     { name: 'Best Sunset Photo Opportunity', value: sunsetPhotoTime},
   ];
 
-  
   function getWaterStatus(windSpeed) {
     if (windSpeed >= 20) {
       return { code: 'bad', message: 'Poor Conditions'}

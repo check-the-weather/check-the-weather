@@ -10,8 +10,6 @@ function subtractMinutesFromDate(date, minutes) {
   return new Date(new Date(date).setMinutes(date.getMinutes() - minutes));
 }
  
-
-
-export {addHoursToDate, addMinutesToDate, subtractMinutesFromDate}
+export { addHoursToDate, addMinutesToDate, subtractMinutesFromDate }
 
 
