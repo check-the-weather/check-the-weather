@@ -6,8 +6,8 @@ import BottomCard from './BottomCard'
 
 import styles from './BottomCards.module.scss' 
 
-import { addHoursToDate, addMinutesToDate, subtractMinutesFromDate } from 'helpers/time'
-import { getRandomInt,getRandomFloat } from 'helpers/random'
+import { addHoursToDate, addMinutesToDate, subtractMinutesFromDate } from 'helpers/timeManipulation.js'
+import { getRandomInt,getRandomFloat } from 'helpers/random.js'
 
 function BottomCards({ data }) {
     const windSpeed = data?.weatherApiData?.current?.wind_kph ?? '' 
