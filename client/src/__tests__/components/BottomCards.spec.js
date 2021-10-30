@@ -6,9 +6,6 @@ import BottomCards from 'components/BottomCards';
 import BottomCard from 'components/BottomCard';
 
 describe('BottomCards', () => {
-  let MOCK_TITLE;
-  let MOCK_TITLE_COLOR;
-  let MOCK_SUBTITLE;
   let MOCK_DATA;
   let EXPECTED_FISHING_ROWS;
   let EXPECTED_WATER_STATUS;
@@ -16,9 +13,6 @@ describe('BottomCards', () => {
   let EXPECTED_SUN_ROWS;
 
   beforeEach(() => {
-    MOCK_TITLE = 'Out on the water';
-    MOCK_TITLE_COLOR = 'blue';
-    MOCK_SUBTITLE = 'Boating and Fishing';
     EXPECTED_WATER_STATUS = { code: 'good', message: 'Good Conditions' };
     EXPECTED_SUN_STATUS = { code: 'medium', message: `UV Index of ${5}` };
     MOCK_DATA = {
@@ -44,7 +38,6 @@ describe('BottomCards', () => {
     const sunsetPhotoTime = rendered.childAt(1).prop('rows')[3].value
     const sunrisePhotoTime = rendered.childAt(1).prop('rows')[1].value
 
-
     EXPECTED_FISHING_ROWS = [
       { name: 'Next High Tide', value: nextHighTide }, 
       { name: 'Next Low Tide', value: nextLowTide }, 
@@ -58,8 +51,6 @@ describe('BottomCards', () => {
       { name: 'Sunset', value: '05:55 PM' },
       { name: 'Best Sunset Photo Opportunity', value: sunsetPhotoTime }
     ]
-
-    console.log(rendered.childAt(1).prop('status'))
 
     expect(rendered.matchesElement(
       <Group className= "BottomCards">
