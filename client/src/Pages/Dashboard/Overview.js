@@ -11,6 +11,8 @@ import TopCards from 'components/TopCards'
 import MiddleCard from 'components/MiddleCard'
 import BottomCards from 'components/BottomCards'
 
+import styles from './Overview.module.scss'
+
 function Overview({ name, logout }) {
   const [owmData, setOwmData] = useState({})
   const [weatherApiData, setweatherApiData] = useState({})
@@ -35,7 +37,7 @@ function Overview({ name, logout }) {
   const apiData = { owmData, weatherApiData }
 
   return (
-    <Group fullHeight fullWidth>
+    <Group fullHeight fullWidth className={styles.Overview}>
       <TabsMenu tabs={tabs}/>
       <VGroup fullHeight fullWidth>
         <TitleHeader title="Overview" name={name} download={weatherApiData?.forecast?.forecastday[0]?.hour} />
