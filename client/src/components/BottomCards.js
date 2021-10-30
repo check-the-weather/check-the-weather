@@ -63,13 +63,12 @@ function BottomCards({ data }) {
   }
 
   function updateSunStatus(uvIndex){
-    if (uvIndex > 5) {
+    if (uvIndex >= 6) {
       return { code: 'bad', message: `UV Index of ${uvIndex}`}
     }
     else if (uvIndex >= 3 && uvIndex < 6) {
       return { code: 'medium', message: `UV Index of ${uvIndex}`} 
     }
-
     else if (uvIndex <= 2){
       return { code: 'good', message: `UV Index of ${uvIndex}`}
     }
