@@ -22,17 +22,19 @@ function App() {
 
   async function checkUserAuth() {
     try {
-      const response = await authedRequester('/auth/verify').get().json()      
-      response === true ? setIsAuthed(true) : setIsAuthed(false)
+      const response = await authedRequester('/auth/verify').get().json()     
+      if (response) setIsAuthed(true);
     } catch (error) {
-      return // Do nothing
+      setIsAuthed(false)
+      console.clear()
     }
+
+    setIsLoading(false)
   }
 
   useEffect(() => {
     checkUserAuth()
-    setIsLoading(false)
-  }, [])
+  })
 
   toast.configure({
     position: 'top-right',
