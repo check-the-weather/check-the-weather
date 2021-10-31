@@ -34,7 +34,7 @@ function App() {
 
   useEffect(() => {
     checkUserAuth()
-  })
+  }, [])
 
   toast.configure({
     position: 'top-right',
