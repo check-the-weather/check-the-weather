@@ -6,9 +6,11 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "build": "cd client && npm install && npm run build",
+    "install-deps": "npm i && cd client && npm i",
     "server": "npm start",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client",
+    "test": "cd client && npm run test",
     "lint": "eslint ./server",
     "lint-fix": "eslint ./server --fix"
   },
